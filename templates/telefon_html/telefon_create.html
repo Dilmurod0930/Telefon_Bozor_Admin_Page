@@ -1,26 +1,149 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uz">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
+    <meta charset="UTF-8">
+    <title>Telefon qo‘shish</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                        url('https://images.unsplash.com/photo-1510557880182-3f8ff09c04a4?auto=format&fit=crop&w=1600&q=80') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 50px;
+            color: #333;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #007bff;
+        }
+
+        .btn-primary {
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-<form method="post" enctype="multipart/form-data">
-  {%  csrf_token %}
-  <input type="text" name="name"  placeholder="Name">
-  <input type="text" name="model"  placeholder="Model">
-  <input type="text" name="color"   placeholder="Color">
-  <br>
-  <input type="number" name="discount_price"   placeholder="Discount_price">
-  <input type="number" name="price" placeholder="Price">
-  <input type="text" name="storage"  placeholder="Storage">
-  <br>
-  <input type="number" name="ram"  placeholder="Ram">
-  <input type="text" name="os"  placeholder="Os">
-  <input type="file" name="image" >
-  <input type="text" name="description"  placeholder="Description">
 
-  <button type="submit">Yaratish</button>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="form-container shadow-lg">
+                <h2>📲 Yangi telefon qo‘shish</h2>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label class="form-label">Telefon nomi</label>
+                        <input type="text" name="name" class="form-control" placeholder="Masalan: iPhone 14">
+                    </div>
 
+                    <div class="mb-3">
+                        <label class="form-label">Model</label>
+                        <input type="text" name="model" class="form-control" placeholder="Masalan: A2890">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Rangi</label>
+                        <input type="text" name="color" class="form-control" placeholder="Masalan: Qora">
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label class="form-label">Narxi (so‘m)</label>
+                            <input type="number" name="price" class="form-control" placeholder="Masalan: 12000000">
+                        </div>
+                        <div class="col">
+                            <label class="form-label">Chegirma narxi (ixtiyoriy)</label>
+                            <input type="number" name="discount_price" class="form-control" placeholder="Masalan: 11000000">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label class="form-label">Xotira (GB)</label>
+                            <input type="number" name="storage" class="form-control" placeholder="128">
+                        </div>
+                        <div class="col">
+                            <label class="form-label">RAM (GB)</label>
+                            <input type="number" name="ram" class="form-control" placeholder="6">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Operatsion tizim</label>
+                        <input type="text" name="os" class="form-control" placeholder="Android / iOS">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Rasm yuklash</label>
+                        <input type="file" name="image" class="form-control">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Tavsif</label>
+                        <textarea name="description" class="form-control" rows="3" placeholder="Telefon haqida qo‘shimcha ma’lumot..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">✅ Yaratish</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--  <meta charset="UTF-8">-->
+<!--  <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<form method="post" enctype="multipart/form-data">-->
+<!--  {%  csrf_token %}-->
+<!--  <input type="text" name="name"  placeholder="Name">-->
+<!--  <input type="text" name="model"  placeholder="Model">-->
+<!--  <input type="text" name="color"   placeholder="Color">-->
+<!--  <br>-->
+<!--  <input type="number" name="discount_price"   placeholder="Discount_price">-->
+<!--  <input type="number" name="price" placeholder="Price">-->
+<!--  <input type="text" name="storage"  placeholder="Storage">-->
+<!--  <br>-->
+<!--  <input type="number" name="ram"  placeholder="Ram">-->
+<!--  <input type="text" name="os"  placeholder="Os">-->
+<!--  <input type="file" name="image" >-->
+<!--  <input type="text" name="description"  placeholder="Description">-->
+
+<!--  <button type="submit">Yaratish</button>-->
+
+<!--</body>-->
+<!--</html>-->
