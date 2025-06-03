@@ -56,6 +56,8 @@
 <div class="overlay">
     <div class="container">
         <h2 class="mb-4 text-center">📱 Mavjud telefonlar</h2>
+        <a class="btn btn-outline-light" href="{% url 'telefon_create' %}">⬅ Qo'shish</a>
+
         <div class="row g-4">
             {% for tel in tele %}
             <div class="col-sm-6 col-md-4 col-lg-3">
