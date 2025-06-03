@@ -5,6 +5,22 @@
   <title>Title</title>
 </head>
 <body>
+<form method="post" enctype="multipart/form-data">
+  {%  csrf_token %}
+  <input type="text" name="name"  placeholder="Name">
+  <input type="text" name="model"  placeholder="Model">
+  <input type="text" name="color"   placeholder="Color">
+  <br>
+  <input type="number" name="discount_price"   placeholder="Discount_price">
+  <input type="number" name="price" placeholder="Price">
+  <input type="text" name="storage"  placeholder="Storage">
+  <br>
+  <input type="number" name="ram"  placeholder="Ram">
+  <input type="text" name="os"  placeholder="Os">
+  <input type="file" name="image" >
+  <input type="text" name="description"  placeholder="Description">
+
+  <button type="submit">Yaratish</button>
 
 </body>
 </html>
