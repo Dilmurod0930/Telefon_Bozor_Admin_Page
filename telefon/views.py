@@ -14,4 +14,4 @@ def telefon_lst(request):
 def telefon_info(request, id):
     tele = Telefon.objects.get(id=id)
     context = {'tele': tele}
-    return render(request, 'telefon_info.html', context= context)
+    return render(request, 'telefon_html/telefon_info.html', context= context)
