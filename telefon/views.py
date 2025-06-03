@@ -45,3 +45,21 @@ def  telefon_create(request):
         tele.save()
         return redirect('telefon_lst')
     return render(request, 'telefon_html/telefon_create.html', {'tele': 'tele'})
+
+
+def  telefon_update(request, id):
+    telefon = Telefon.objects.get(id=id)
+    if  request.method == 'POST':
+        telefon.name  = request.POST.get('name')
+        telefon.model = request.POST.get('model')
+        telefon.color = request.POST.get('color')
+        telefon.discount_price = request.POST.get('discount_price')
+        telefon.price = request.POST.get('price')
+        telefon.storage = request.POST.get('storage')
+        telefon.ram = request.POST.get('ram')
+        telefon.os = request.POST.get('os')
+        telefon.description = request.POST.get('description')
+        telefon.image = request.FILES['image']
+        telefon.save()
+        return redirect('telefon_info', id=id)
+    return render(request, 'telefon_html/telefon_update.html', {'telefon': telefon})
