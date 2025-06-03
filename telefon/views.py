@@ -1,6 +1,5 @@
 from django.shortcuts import render
-
-from Online_Telefon_Bozor_P.telefon.models import Telefon
+from .models import Telefon
 
 
 # Create your views here.
@@ -10,7 +9,7 @@ def main(request):
 def telefon_lst(request):
     tele = Telefon.objects.all()
     context = {'tele': tele}
-    return render(request, 'telefon_lst.html', context =context)
+    return render(request, 'telefon_html/telefon_lst.html', context =context)
 
 def telefon_info(request, id):
     tele = Telefon.objects.get(id=id)
