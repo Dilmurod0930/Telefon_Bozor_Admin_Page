@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>Telefonlar ro'yxati</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: url('https://images.unsplash.com/photo-1580910051074-34bbee0349dd?auto=format&fit=crop&w=1600&q=80') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .overlay {
+            background-color: rgba(255, 255, 255, 0.95);
+            min-height: 100vh;
+            padding: 40px 0;
+        }
+        .telefon-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+            transition: transform 0.3s;
+        }
+        .telefon-card:hover {
+            transform: translateY(-5px);
+        }
+        .telefon-img {
+            height: 250px;
+            object-fit: cover;
+            width: 100%;
+        }
+        .price {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #198754;
+        }
+        .old-price {
+            text-decoration: line-through;
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">📱 TelefonBozori.uz</a>
+        <a class="btn btn-outline-light" href="{% url 'home' %}">🏠 Bosh sahifa</a>
+    </div>
+</nav>
+
+<div class="overlay">
+    <div class="container">
+        <h2 class="mb-4 text-center">📱 Mavjud telefonlar</h2>
+        <div class="row g-4">
+            {% for tel in tele %}
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card telefon-card">
+                    <a href="{% url 'telefon_info' tel.id %}" class="text-decoration-none text-dark">
+                        {% if tel.image %}
+                            <img src="{{ tel.image.url }}" class="telefon-img" alt="{{ tel.name }}">
+                        {% else %}
+                            <img src="https://via.placeholder.com/300x250?text=No+Image" class="telefon-img" alt="No image">
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ tel.name }}</h5>
+                            <p class="card-text text-muted mb-1">{{ tel.model }}</p>
+                            {% if tel.discount_price %}
+                                <p class="card-text">
+                                    <span class="old-price me-2">{{ tel.price }} so‘m</span><br>
+                                    <span class="price">{{ tel.discount_price }} so‘m</span>
+                                </p>
+                            {% else %}
+                                <p class="card-text price">{{ tel.price }} so‘m</p>
+                            {% endif %}
+                            <p class="text-muted small">{{ tel.ram }}GB RAM | {{ tel.storage }}GB Xotira</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            {% empty %}
+            <p class="text-center text-danger">Telefonlar topilmadi.</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center py-3 mt-5">
+    <p class="mb-0">© 2025 TelefonBozori.uz | Barcha huquqlar himoyalangan.</p>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
