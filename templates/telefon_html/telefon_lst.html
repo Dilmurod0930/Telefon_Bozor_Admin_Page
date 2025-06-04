@@ -50,13 +50,14 @@
     <div class="container">
         <a class="navbar-brand" href="#">📱 TelefonBozori.uz</a>
         <a class="btn btn-outline-light" href="{% url 'main' %}">🏠 Bosh sahifa</a>
+        <a class="btn btn-outline-light" href="{% url 'telefon_create' %} " >⬅ Qo'shish</a>
+
     </div>
 </nav>
 
 <div class="overlay">
     <div class="container">
         <h2 class="mb-4 text-center">📱 Mavjud telefonlar</h2>
-        <a class="btn btn-outline-light" href="{% url 'telefon_create' %}">⬅ Qo'shish</a>
 
         <div class="row g-4">
             {% for tel in tele %}

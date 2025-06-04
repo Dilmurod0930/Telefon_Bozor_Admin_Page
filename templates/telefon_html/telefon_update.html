@@ -1,10 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="UTF-8">
+  <title>Title</title>
 </head>
 <body>
-
+<form method="post" enctype="multipart/form-data">
+  {%  csrf_token %}
+  <input type="text" name="name" value="{{telefon.name}}" placeholder="Name">
+  <input type="text" name="model" value="{{telefon.model}}" placeholder="Model">
+  <input type="text" name="color" value="{{telefon.color}}"  placeholder="Color">
+  <br>
+  <input type="number" name="discount_price" value="{{telefon.discount_price}}"  placeholder="Discount_price">
+  <input type="number" name="price" value="{{telefon.price}}" placeholder="Price">
+  <input type="text" name="storage" value="{{telefon.storage}}"  placeholder="Storage">
+  <br>
+  <input type="number" name="ram" value="{{telefon.ram}}"  placeholder="Ram">
+  <input type="text" name="os" value="{{telefon.os}}"  placeholder="Os">
+  <input type="text" name="description" value="{{telefon.description}}"  placeholder="Description">
+  <input type="file" name="image" value="{{telefon.image.url}}" >
+  <button type="submit">Yaratish</button>
+</form>
 </body>
 </html>
