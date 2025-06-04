@@ -1,15 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uz">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Telefonni o‘chirish</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(to right, #ff6a00, #ee0979);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            color: #fff;
+        }
+
+        .delete-card {
+            background-color: #fff;
+            color: #333;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .delete-btn {
+            background-color: #dc3545;
+            border: none;
+            padding: 10px 25px;
+            font-weight: bold;
+            color: white;
+            border-radius: 8px;
+            transition: 0.3s;
+            margin-right: 10px;
+        }
+
+        .delete-btn:hover {
+            background-color: #c82333;
+        }
+
+        .cancel-btn {
+            background-color: #6c757d;
+            text-decoration: none;
+            padding: 10px 25px;
+            font-weight: bold;
+            color: white;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .cancel-btn:hover {
+            background-color: #5a6268;
+        }
+    </style>
 </head>
 <body>
-        <h1> Delete  Peyjga   Hush  kelibsiz</h1>
-        <form   method="POST">
-            {% csrf_token %}
-            <button type="submit">Delete</button>
-            <a href="{% url 'telefon_info' telefon.id %}"> Yo'q,  O'chirilmasin</a>
-        </form>
+
+<div class="delete-card">
+    <h2>⚠ Telefonni o‘chirish</h2>
+    <p><strong>{{ telefon.name }}</strong> modeldagi telefonni rostdan ham o‘chirmoqchimisiz?</p>
+
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="delete-btn">🗑 Ha, o‘chirish</button>
+        <a href="{% url 'telefon_info' telefon.id %}" class="cancel-btn">❌ Yo‘q, qaytish</a>
+    </form>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
