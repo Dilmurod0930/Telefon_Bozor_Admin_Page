@@ -5,6 +5,11 @@
     <title>Title</title>
 </head>
 <body>
-        <h1> Delet  Peyjga   Hush  kelibsiz</h1>
+        <h1> Delete  Peyjga   Hush  kelibsiz</h1>
+        <form   method="POST">
+            {% csrf_token %}
+            <button type="submit">Delete</button>
+            <a href="{% url 'telefon_info' telefon.id %}"> Yo'q,  O'chirilmasin</a>
+        </form>
 </body>
 </html>
