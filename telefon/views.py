@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Telefon
 
 
@@ -63,3 +63,12 @@ def  telefon_update(request, id):
         telefon.save()
         return redirect('telefon_info', id=id)
     return render(request, 'telefon_html/telefon_update.html', {'telefon': telefon})
+
+
+
+def telefon_delete(request, id):
+    telefon = get_object_or_404(Telefon, id=id)
+    if  request.method == 'POST':
+        telefon.delete()
+        return redirect('telefon_lst')
+    return render(request, 'telefon_html/telefon_delete.html', {'telefon': telefon})
