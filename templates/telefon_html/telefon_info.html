@@ -50,8 +50,14 @@
 <nav class="navbar navbar-dark bg-dark">
     <div class="container">
         <a class="navbar-brand" href="#">📱 TelefonBozori.uz</a>
+        <div style="width: 100px"></div>
+        <div style="width: 100px"></div>
+        <div style="width: 100px"></div>
+        <div style="width: 100px"></div>
+        <div style="width: 100px"></div>
         <a class="btn btn-outline-light" href="{% url 'telefon_lst' %}">⬅ Orqaga</a>
         <a class="btn btn-outline-light" href="{% url 'telefon_update' tele.id %}"> Yangilash</a>
+        <a class="btn btn-outline-light" href="{% url 'telefon_delete' tele.id %}"> O'chirish</a>
     </div>
 </nav>
 
